@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <body>
+
+   <h2>Book List</h2>
+
+<table>
+    <thead>
+    <th>Book</th>
+    <th>Author</th>
+    <th>Borrowed</th>
+    </thead>
+{% for book in books %}
+    <tr>
+        <td><a href="/books/{{ loop.index }}">{{ book.book_name }}</a></td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.borrowed }}</td>
+    </tr>
+{% endfor %}
+
+
+</table>
+<div>
+      <h3>Add Books</h3>
+      <hr/>
+
+      <form method = "post" action="/post_book">
+
+         <label>Book: </label>
+         <input id="book_name" name="book_name" type="text" />
+
+         <label>Author: </label>
+         <input id="author" name="author" type="text" />
+
+         <label>Borrowed: </label>
+         <input id="borrowed" name="borrowed" type="text" />
+         <input type = "submit" value = "Add"/>
+      </form>
+
+   </body>
+</html>
